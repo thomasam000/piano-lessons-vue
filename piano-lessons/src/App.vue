@@ -1,10 +1,31 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+      <div v-if="authUser">
+        {{authUser.username}}
+      </div>
+    </nav>
+    <router-view/>
+  </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters('auth', ['authUser']),
+    authId () {
+      return this.$store.state.auth.authId
+    },
+    users () {
+      return this.$store.state.users.items
+    }
+  }
+}
+</script>
 
 <style>
 #app {

@@ -10,6 +10,9 @@ export default {
   getters: {
     authUser: (state, getters, rootState, rootGetters) => {
       return rootGetters['users/user'](state.authId)
+    },
+    authId: (state, getters, rootState, rootGetters) => {
+      return state.authId
     }
   },
   actions: {

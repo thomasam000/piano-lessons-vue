@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import firebase from '@/helpers/firebase'
 import firebaseConfig from '@/config/firebase'
+import VeeValidatePlugin from '@/plugins/VeeValidatePlugin'
 
 firebase.initializeApp(firebaseConfig)
 
@@ -11,6 +12,19 @@ const PianoLessons = createApp(App)
 
 PianoLessons.use(store)
 PianoLessons.use(router)
+PianoLessons.use(VeeValidatePlugin)
+
+const requireComponent = require.context('./components', true, /App[A-Z]\w+\.(vue|js)$/)
+requireComponent.keys().forEach(function (fileName) {
+  let baseComponentConfig = requireComponent(fileName)
+  baseComponentConfig = baseComponentConfig.default || baseComponentConfig
+  const baseComponentName = baseComponentConfig.name || (
+    fileName
+      .replace(/^.+\//, '')
+      .replace(/\.\w+$/, '')
+  )
+  PianoLessons.component(baseComponentName, baseComponentConfig)
+})
 
 PianoLessons.mount('#app')
 
