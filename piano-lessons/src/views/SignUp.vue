@@ -9,7 +9,7 @@
         <AppFormField v-model="form.email" name="email" label="Email" rules="required|email|unique:users,email" type="email" />
         <AppFormField v-model="form.password" name="password" label="Password" rules="required|min:8" type="password" />
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="avatar">
             Avatar
             <div v-if="avatarPreview">
@@ -25,7 +25,7 @@
             @change="handleImageUpload"
             accept="image/*"
           />
-        </div>
+        </div> -->
 
         <div class="form-actions">
           <button type="submit" class="btn-blue btn-block">Register</button>
@@ -63,12 +63,12 @@ export default {
       this.$router.push('/')
     },
     handleImageUpload (e) {
-      this.form.avatar = e.target.files[0]
-      const reader = new FileReader()
-      reader.onload = (event) => {
-        this.avatarPreview = event.target.result
-      }
-      reader.readAsDataURL(this.form.avatar)
+      // this.form.avatar = e.target.files[0]
+      // const reader = new FileReader()
+      // reader.onload = (event) => {
+      //   this.avatarPreview = event.target.result
+      // }
+      // reader.readAsDataURL(this.form.avatar)
     }
   },
   created () {

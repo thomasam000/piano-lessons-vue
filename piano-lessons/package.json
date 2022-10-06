@@ -12,6 +12,7 @@
     "@vee-validate/rules": "^4.6.10",
     "core-js": "^3.8.3",
     "firebase": "^9.10.0",
+    "musical-metronome": "^0.0.3",
     "vee-validate": "^4.6.10",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
@@ -26,10 +27,8 @@
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-standard": "^6.1.0",
-    "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-promise": "^5.1.0"
   }
 }
