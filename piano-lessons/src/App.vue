@@ -2,7 +2,10 @@
   <div>
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <span v-if="!authUser"><router-link  to="/signin">Sign In</router-link> |</span>
+      <span v-if="!authUser"><router-link to="/register">Register</router-link></span>
+      <span v-if="authUser"><router-link to="/logout">Log out</router-link></span>
       <div v-if="authUser">
         {{authUser.username}}
       </div>
